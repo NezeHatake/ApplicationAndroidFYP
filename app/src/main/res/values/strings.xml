@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AttendanceWorker</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Hello_Blank_Fragment">Hello blank fragment</string>
+</resources>
