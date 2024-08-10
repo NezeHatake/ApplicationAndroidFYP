@@ -1,8 +1,137 @@
+<!-- settings_activity.xml -->
+
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F7F7">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:fontFamily="sans-serif-medium" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:fontFamily="sans-serif"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="etName" />
+
+        <EditText
+            android:id="@+id/et_matrix_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Matrix Number"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:fontFamily="sans-serif"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="etMatrixNumber" />
+
+        <Button
+            android:id="@+id/btn_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:background="#4CAF50"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate Us"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:fontFamily="sans-serif-medium" />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btn_rate_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate Us"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:background="#4CAF50"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:id="@+id/tv_about_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is a sample about us text."
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:fontFamily="sans-serif"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_about_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Learn More"
