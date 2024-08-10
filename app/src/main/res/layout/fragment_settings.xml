@@ -1,8 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:padding="16dp">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/Yellow">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Settings Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <Switch
+            android:id="@+id/switch_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:padding="25dp"
+            android:textSize="15sp"
+            android:text="Enable Notifications" />
+
+        <Switch
+            android:id="@+id/switch_dark_mode"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:padding="25dp"
+            android:textSize="15sp"
+            android:text="Enable Dark Mode" />
+
+        <!-- App Information Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Information"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btn_about_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:backgroundTint="@color/black"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"
+            android:elevation="4dp"/>
+
+        <Button
+            android:id="@+id/btn_privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:backgroundTint="@color/black"
+            android:textColor="@android:color/white"
+            android:elevation="4dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

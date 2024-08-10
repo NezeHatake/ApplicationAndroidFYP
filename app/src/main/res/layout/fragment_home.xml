@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lavender"
-    tools:context=".HomeFragment">
+    android:padding="16dp"
+    android:background="@color/Yellow"
+    tools:context=".MainActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Home"
-        android:textSize="30sp"
-        android:textColor="@color/white" />
+        android:layout_height="662dp"
+        android:layout_gravity="center|center_horizontal"
+        android:gravity="top|center"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/button_borang_d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/white"
+            android:elevation="4dp"
+            android:text="Borang D"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/button_borang_e"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:elevation="4dp"
+            android:text="Borang E"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
