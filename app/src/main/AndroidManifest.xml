@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <!-- Specify the camera feature; set required to true or false based on your app's needs -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,16 +20,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewApps"
-        tools:targetApi="31">
+        tools:replace="android:label"
+        tools:targetApi="29" >
+
+        <!-- Main Activity Declaration -->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait"> <!-- Lock to portrait mode -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- Additional Activities -->
+        <activity
+            android:name=".ActivityForm"
+            android:exported="false"
+            android:theme="@style/Theme.NewApps" />
+
+        <activity
+            android:name=".borangdactivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".borangeactivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
+
+        <!-- Declaration for CaptureActivity used by the barcode scanner -->
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:exported="false"
+            android:stateNotNeeded="true"
+            android:screenOrientation="portrait"
+            tools:replace="android:screenOrientation"/> <!-- Lock to portrait mode -->
+
+    </application>
 </manifest>

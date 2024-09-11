@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">AttendanceWorker</string>
+    <string name="app_name">AttendanceJKM</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="Hello_Blank_Fragment">Hello blank fragment</string>
+    <string name="settings">Settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="home">Home</string>
+    <string name="borang_d">Borang D</string>
+    <string name="borang_e">Borang E</string>
+    <string name= "generate_qr_code">Generate QR Code</string>
+    <string name="title_activity_main2">MainActivity2</string>
+
+    <string name="bottom_app_bar_behavior">com.google.android.material.bottomappbar.BottomAppBar$Behavior</string>
+    <string name="bottom_navigation_behavior">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="fab_behavior">com.google.android.material.behavior.FloatingActionButtonBehavior</string>
+    <!-- Strings used for fragments for navigation -->
+
 </resources>
