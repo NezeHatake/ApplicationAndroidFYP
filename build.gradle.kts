@@ -1,4 +1,24 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Root-level build.gradle.kts
+
 plugins {
-    alias(libs.plugins.androidApplication) apply false
+    id("com.android.application") version "8.6.0" apply false
+}
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://chaquo.com/maven") } // Add Chaquopy's Maven repository here
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.6.0")
+    }
+}
+
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+}
+
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
 }
