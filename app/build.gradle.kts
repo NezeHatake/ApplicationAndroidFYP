@@ -29,12 +29,12 @@ android {
 
 dependencies {
     // Core AndroidX dependencies
-    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.appcompat:appcompat:1.6.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.activity:activity:1.9.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.core:core-ktx:1.13.1")
-
+    implementation("androidx.fragment:fragment:1.5.0")
     // ZXing libraries for QR code scanning
     implementation("com.google.zxing:core:3.5.3")
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")

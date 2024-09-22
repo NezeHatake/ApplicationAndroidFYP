@@ -1,59 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Main Content Layout -->
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <!-- Background Image (Notification Icon) -->
-        <ImageView
-            android:id="@+id/no_notifications_icon"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_centerInParent="true"
-            android:alpha="0.2"
-            android:src="@drawable/ic_baseline_notification_24" />
 
-        <!-- No Notifications Text -->
-        <TextView
-            android:id="@+id/no_notifications_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/no_notifications_icon"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="No notifications"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            tools:context=".MainActivity">
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/no_notifications_icon"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:alpha="0.2"
+                android:src="@drawable/ic_baseline_notification_24" />
 
-    <!-- BottomAppBar -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@color/Yellow"
-        android:elevation="0dp"
-        android:paddingStart="5dp"
-        android:paddingEnd="50dp"
-        app:itemIconSize="24dp"
-        app:itemIconTint="@color/black"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemTextColor="@color/black"
-        app:labelVisibilityMode="labeled"
-        app:layout_anchor="@+id/relativeLayout"
-        app:layout_anchorGravity="bottom|center"
-        app:menu="@menu/bottom_nav_menu" />
+            <!-- No Notifications Text -->
+            <TextView
+                android:id="@+id/no_notifications_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="200dp"
+                android:text="No notifications"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <!-- FrameLayout for Fragment content -->
+            <FrameLayout
+                android:id="@+id/frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="?attr/actionBarSize"
+                android:padding="16dp" />
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/Yellow"
+                android:paddingBottom="10dp"
+                app:fabCradleMargin="10dp"
+                app:fabCradleRoundedCornerRadius="10dp"
+                app:fabAlignmentMode="end"
+                app:fabAnimationMode="slide"
+                app:menu="@menu/bottombar_menu"
+                app:elevation="4dp" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/Yellow"
+                android:paddingStart="5dp"
+                android:paddingEnd="80dp"
+                app:itemIconSize="24dp"
+                app:itemIconTint="@color/black"
+                app:itemRippleColor="@android:color/transparent"
+                app:itemTextColor="@color/black"
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/bottom_nav_menu"
+                app:elevation="0dp" />
+
+            <!-- FrameLayout to overlay the FAB -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom">
+
+                <!-- FloatingActionButton for QR Code Scanning -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="37dp"
+                    android:layout_marginRight="30dp"
+                    android:backgroundTint="@color/white"
+                    android:contentDescription="QR Code"
+                    android:src="@drawable/ic_baseline_qrcode_24"
+                    android:visibility="visible"
+                    app:fabSize="normal"
+                    app:rippleColor="@color/Red"
+                    app:tint="@color/Red"
+                    app:elevation="6dp" />
+
+            </FrameLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

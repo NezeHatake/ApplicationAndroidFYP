@@ -4,16 +4,17 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import androidx.fragment.app.Fragment; // Make sure to import this
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.widget.Toast;
 
 import com.example.newapps.databinding.ActivityMainBinding;
@@ -41,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomAppBar bottomAppBar;
     private BottomNavigationView bottomNavigationView;
 
-    private final static int ID_HOME = 1;
-    private final static int ID_NOTIFICATION = 2;
-    private final static int ID_SETTINGS = 3;
-
     // ActivityResultLauncher for requesting camera permission
     private final ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -69,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        loadFragment(new HomeFragment());
 
         // Lock the orientation to portrait
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -93,31 +91,31 @@ public class MainActivity extends AppCompatActivity {
         bottomAppBar.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.home) {
-                startActivity(new Intent(this, HomeActivity.class));
-                return true;
+                loadFragment(new HomeFragment());
             } else if (itemId == R.id.notifications) {
-                startActivity(new Intent(this, NotificationsActivity.class));
-                return true;
+                loadFragment(new NotificationFragment());
             } else if (itemId == R.id.settings) {
-                startActivity(new Intent(this, SettingsActivity.class));
-                return true;
+                loadFragment(new SettingFragment());
             }
             return false;
         });
+    }
+    private void loadFragment(Fragment fragment) {
+        FragmentManager fm = getSupportFragmentManager(); // Use this for androidx
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout, fragment);
+        fragmentTransaction.commit();
     }
 
     private void setupBottomNavigationViewListener() {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.home) {
-                startActivity(new Intent(this, HomeActivity.class));
-                return true;
+                loadFragment(new HomeFragment());
             } else if (itemId == R.id.notifications) {
-                startActivity(new Intent(this, NotificationsActivity.class));
-                return true;
+                loadFragment(new NotificationFragment());
             } else if (itemId == R.id.settings) {
-                startActivity(new Intent(this, SettingsActivity.class));
-                return true;
+                loadFragment(new SettingFragment());
             }
             return false;
         });
@@ -157,9 +155,15 @@ public class MainActivity extends AppCompatActivity {
             HttpURLConnection urlConnection = null;
             JSONArray jsonArray = null;
             try {
-                URL url = new URL("https://forms.fillout.com/t/w8mgfMnWf2us?ProjectAttendanceJKM=xxx"); // Replace with actual URL
+                // URL for your API endpoint
+                URL url = new URL("https://forms.fillout.com/t/w8mgfMnWf2us?ProjectAttendanceJKM=xxx"); // Replace with your API URL
                 urlConnection = (HttpURLConnection) url.openConnection();
 
+                // Set request method and headers
+                urlConnection.setRequestMethod("GET");
+                urlConnection.setRequestProperty("Authorization", "Bearer sk_prod_D994r6yKUo4GShEqrlvFYh7b9FRBpxadCwzNY2v6GgsXAP7ARH2mUGLYVWM6Fh3nqssqvsThh8n1MJ8Wx2A2s9xStkwxwoNTw2K_10258");
+
+                // Read the response
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 StringBuilder result = new StringBuilder();

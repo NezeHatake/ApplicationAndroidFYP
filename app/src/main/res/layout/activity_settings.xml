@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <!-- Scrollable Content Area -->
-    <ScrollView
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
         android:background="@color/white"
-        android:layout_gravity="top"
-        android:layout_marginBottom="56dp"> <!-- Margin to make space for BottomAppBar -->
+        tools:context=".MainActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,23 +69,69 @@
                 android:elevation="4dp" />
 
         </LinearLayout>
-    </ScrollView>
 
-    <!-- BottomAppBar should be outside of ScrollView -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@color/Yellow"
-        android:paddingStart="5dp"
-        android:paddingEnd="50dp"
-        android:elevation="0dp"
-        app:itemIconSize="24dp"
-        app:itemIconTint="@color/black"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemTextColor="@color/black"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
+        <!-- FrameLayout for Fragment content -->
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:padding="16dp" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/Yellow"
+            android:paddingBottom="10dp"
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="10dp"
+            app:fabAlignmentMode="end"
+            app:fabAnimationMode="slide"
+            app:menu="@menu/bottombar_menu"
+            app:elevation="4dp" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/Yellow"
+            android:paddingStart="5dp"
+            android:paddingEnd="80dp"
+            app:itemIconSize="24dp"
+            app:itemIconTint="@color/black"
+            app:itemRippleColor="@android:color/transparent"
+            app:itemTextColor="@color/black"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu"
+            app:elevation="0dp" />
+
+        <!-- FrameLayout to overlay the FAB -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom">
+
+            <!-- FloatingActionButton for QR Code Scanning -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="37dp"
+                android:layout_marginRight="30dp"
+                android:backgroundTint="@color/white"
+                android:contentDescription="QR Code"
+                android:src="@drawable/ic_baseline_qrcode_24"
+                android:visibility="visible"
+                app:fabSize="normal"
+                app:rippleColor="@color/Red"
+                app:tint="@color/Red"
+                app:elevation="6dp" />
+
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

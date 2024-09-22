@@ -11,7 +11,7 @@ buildscript {
         maven { url = uri("https://chaquo.com/maven") } // Add Chaquopy's Maven repository here
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.6.0")
+        classpath("com.android.tools.build:gradle:8.4.0")
     }
 }
 
